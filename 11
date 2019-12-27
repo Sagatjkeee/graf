@@ -1,4 +1,3 @@
-import math
 from math import e
 N = 2000
 C = 0.12
@@ -40,17 +39,12 @@ def t(p, N, lambd, mu):
         t_ser = 1 - e**(-mu * zet[p-1])*10
         t_syst = t_0 + t_ser
         p += 1
-
-
         if (t0_1 > t_syst) :
             t_ex = (t0_1 - t_syst)
             k += 1
         t_ex_sum += t_ex
         print('%3.0f | %3.9f | %3.9f | %3.9f | %3.9f | %3.9f ' % (p + 1, t0, t_service, t_system, t_stay, t_ex))
     t = t_service_sum / p
-    print('--------')
-    print(k)
-    print('--------')
     tt = t_ex_sum / k
     print("T ожидания ="'%3.5f' % tt)
     print("T обслуживания ="'%3.5f' % t)
@@ -59,9 +53,3 @@ p = 0
 lambd = 0.015
 mu = 1/0.033
 t(p, N, lambd, mu)
-
-#if __name__ == '__main__':
-#    p = 0
-#    lambd = 0.015
-#    mu = 1/0.033
-#    t(p,2000, lambd,mu)
